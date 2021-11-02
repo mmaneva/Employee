@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Employee.Models
 {
-    public class EmployeeContext
+    public class EmployeeContext : DbContext
     {
+        public EmployeeContext(DbContextOptions options) : base(options)
+        {
+
+        }
+
+        public DbSet<Employeecs> Employees { get; set; }
     }
 }
