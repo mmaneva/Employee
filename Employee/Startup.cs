@@ -1,20 +1,15 @@
-using Employee.Models;
+using Employees.Models;
+using Employees.Models.DataManager;
+using Employees.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Employee
+namespace Employees
 {
     public class Startup
     {
@@ -31,6 +26,7 @@ namespace Employee
 
             services.AddControllers();
             services.AddDbContext<EmployeeContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:DefaultConection"]));
+            services.AddScoped<IDataRepository<Employee>, EmployeeManager>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Employee", Version = "v1" });

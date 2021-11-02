@@ -1,8 +1,8 @@
-﻿using Employee.Repository;
+﻿using Employees.Repository;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Employee.Models.DataManager
+namespace Employees.Models.DataManager
 {
     public class EmployeeManager : IDataRepository<Employee>
     {

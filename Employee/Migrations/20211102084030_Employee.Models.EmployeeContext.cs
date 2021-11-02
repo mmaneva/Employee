@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Employee.Migrations
+namespace Employees.Migrations
 {
     public partial class EmployeeModelsEmployeeContext : Migration
     {

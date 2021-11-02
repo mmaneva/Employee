@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Employee.Repository
+namespace Employees.Repository
 {
     public interface IDataRepository<TEntity>
     {

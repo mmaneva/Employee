@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Employee.Models
+namespace Employees.Models
 {
     public class EmployeeContext : DbContext
     {
