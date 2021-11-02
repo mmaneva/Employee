@@ -47,7 +47,9 @@ namespace Employees.Controllers
 
             _dataRepository.Post(employee);
 
-            return CreatedAtRoute("Get", new { Id = employee.Id }, employee);
+            return Ok(employee);
+
+   
         }
 
         [HttpPut("{id}")]
