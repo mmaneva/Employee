@@ -16,7 +16,7 @@ namespace Employees.Controllers
         {
             _dataRepository = dataRepository;
         }
-        
+
         [HttpGet]
         public IActionResult GetEmployee()
         {
@@ -29,7 +29,7 @@ namespace Employees.Controllers
         {
             Employee employee = _dataRepository.Get(id);
 
-            if(employee == null)
+            if (employee == null)
             {
                 return NotFound("Employee was not found");
             }
@@ -38,9 +38,9 @@ namespace Employees.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEmployee([FromBody]Employee employee)
+        public IActionResult AddEmployee([FromBody] Employee employee)
         {
-            if(employee == null)
+            if (employee == null)
             {
                 return BadRequest("Emp[loyee is null");
             }
@@ -50,16 +50,16 @@ namespace Employees.Controllers
             return CreatedAtRoute("Get", new { Id = employee.Id }, employee);
         }
 
-        [HttpPut]
-        public IActionResult UpdateEmployee(int id, [FromBody]Employee employee)
+        [HttpPut("{id}")]
+        public IActionResult UpdateEmployee(int id, [FromBody] Employee employee)
         {
-            if(employee == null)
+            if (employee == null)
             {
                 return BadRequest("Employee is null");
             }
 
             Employee dbEmployee = _dataRepository.Get(id);
-            if(dbEmployee == null)
+            if (dbEmployee == null)
             {
                 return NotFound("Employee was not found");
             }
@@ -68,7 +68,7 @@ namespace Employees.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteEmployee(int id)
         {
             Employee dbEmployee = _dataRepository.Get(id);
